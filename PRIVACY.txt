@@ -1,0 +1,133 @@
+PRIVACY POLICY - COLLECTIVE SCANNER
+====================================
+
+Last updated: 16 November 2026
+Applies to Collective Scanner version 1.0.0 and later
+
+Collective Scanner is a free, open-source program (GNU GPL v3.0 or later)
+that runs entirely on your own computer. This policy explains what
+information it handles and what it does with it.
+
+
+1. SUMMARY
+----------
+
+  * No data collection. Collective Scanner does not collect, store, sell or
+    share any personal data. The author receives nothing.
+  * No accounts, analytics, advertising, telemetry or crash reporting.
+  * Everything stays on your computer. The dashboard is served only on
+    127.0.0.1 (localhost), so other devices cannot open it.
+  * No third-party resources. The page loads no external fonts, scripts,
+    images or trackers.
+
+
+2. WHAT INFORMATION THE PROGRAM READS
+-------------------------------------
+
+To show its dashboard, the program reads information LOCALLY from your
+computer, while it is running:
+
+  System
+    Processor, memory, storage, temperature and battery levels; names,
+    owners and resource use of running processes.
+    Source: /proc, /sys
+
+  Disk
+    Drive sizes; names and sizes of files and folders you choose to explore.
+    Source: the file system
+
+  Wi-Fi
+    Names (SSIDs), hardware addresses, signal strength and security type of
+    nearby wireless networks.
+    Source: NetworkManager (nmcli)
+
+  Bluetooth
+    Names, addresses, type and signal strength of nearby Bluetooth devices.
+    Source: BlueZ (bluetoothctl, D-Bus)
+
+  Network
+    Your IP address, router, DNS servers, link speed; addresses, names and
+    makers of devices on your home network.
+    Source: ip, nmcli, ping, avahi-resolve
+
+  Traffic
+    Network connections of YOUR OWN USER'S programs: program name, remote
+    address and port, and the number of bytes sent and received.
+    Source: ss, /proc/net/dev
+
+The content of your network traffic is never read, recorded or inspected.
+Only connection details and byte counts are used.
+
+This information is held in memory only while the program runs and is gone
+when it stops. Nothing is written to disk, except files you choose to export
+(see section 4).
+
+
+3. NETWORK ACTIVITY PERFORMED BY THE PROGRAM
+--------------------------------------------
+
+Collective Scanner does not contact the author or any server run by the
+author. It does make the following network requests in order to work:
+
+  1. Connectivity check (Network section and Overview, about once a minute
+     while they are open): one ping to your router, one ping to 1.1.1.1
+     (Cloudflare's public DNS service), and one DNS lookup of
+     fedoraproject.org. These reveal your public IP address to those
+     services, as any normal internet use does.
+
+  2. Reverse-DNS lookups (Traffic section): the addresses your programs
+     connect to are looked up through your computer's configured DNS
+     server, so that names such as "google.com" can be shown instead of
+     numbers.
+
+  3. Wi-Fi and Bluetooth scans: your adapters listen for, and may briefly
+     announce themselves to, nearby devices. This is the same as opening
+     your system's Wi-Fi or Bluetooth settings. The program never connects
+     or pairs.
+
+  4. Home-network scan (only when you press "Find devices"): sends one ping
+     to each address on your local network.
+
+  5. Port check (only when you press "Start check"): connects to the ports
+     of the device you enter, and may read the short greeting a service
+     sends back.
+
+Only scan networks and devices that you own or have permission to test.
+
+
+4. INFORMATION STORED ON YOUR COMPUTER
+--------------------------------------
+
+  * Browser storage: the page remembers your theme choice (light or dark)
+    and the last section you opened, in your browser's local storage. This
+    never leaves your browser. You can clear it with your browser's "clear
+    site data" option.
+
+  * Exports: CSV and PDF files are created only when you click Export, and
+    are saved where you choose (normally your Downloads folder). They may
+    contain the information listed above, such as addresses, device names
+    and program names. Treat them as private and take care when sharing
+    them.
+
+
+5. CHILDREN
+-----------
+
+The program collects no data from anyone, including children.
+
+
+6. CHANGES TO THIS POLICY
+-------------------------
+
+Any change will be published in this file in the project's repository at
+https://github.com/agent-denis/collective-scanner, with a new "Last
+updated" date.
+
+
+7. CONTACT
+----------
+
+Questions about this policy:
+
+  Email:   denis.solihull@pm.me
+  Issues:  https://github.com/agent-denis/collective-scanner/issues
